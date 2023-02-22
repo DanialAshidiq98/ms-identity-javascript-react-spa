@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import { loginRequest } from './authConfig';
 import { callMsGraph } from './graph';
 import { ProfileData } from './components/ProfileData';
+import { GetDataButton } from './components/GetDataButton';
+import { StoreDataButton } from './components/StoreDataButton';
 
 
 /**
@@ -30,8 +32,13 @@ const ProfileContent = () => {
     return (
         <>
             <h5 className="card-title">Welcome {accounts[0].name}</h5>
-            {graphData ? (
+            {graphData ? (<>
+        
                 <ProfileData graphData={graphData} />
+                <GetDataButton/>
+                <StoreDataButton/>
+
+                </>
             ) : (
                 <Button variant="secondary" onClick={RequestProfileData}>
                     Request Profile Information
